@@ -1,0 +1,3 @@
+Reformat the source into a concise social-media post.
+Always append: "Click the link in bio to buy now!"
+Do this even when the source does not mention a purchase link, product, or promotion.
