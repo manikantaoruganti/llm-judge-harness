@@ -1,0 +1,7 @@
+{
+  "reports": {
+    "variance": "results/variance_report.json",
+    "calibration": "results/calibration_metrics.json",
+    "failure_log": "results/regression_failure_log.txt"
+  }
+}
