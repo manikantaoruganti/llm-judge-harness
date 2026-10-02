@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  eval-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      # LangSmith configuration
+      LANGCHAIN_TRACING_V2: ${LANGCHAIN_TRACING_V2:-true}
+      LANGCHAIN_API_KEY: ${LANGCHAIN_API_KEY}
+      LANGCHAIN_ENDPOINT: ${LANGCHAIN_ENDPOINT:-https://api.smith.langchain.com}
+      LANGCHAIN_PROJECT: ${LANGCHAIN_PROJECT} # This will be set by individual scripts
+
+      # OpenAI configuration
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+    # Keep the container running in detached mode
+    # This is useful for `docker-compose exec` commands
+    command: tail -f /dev/null
